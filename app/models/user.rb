@@ -12,9 +12,9 @@ class User < ApplicationRecord
     validates :first_name,
     format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
     validates :family_name_kana,
-    format: { with: /\A([ァ-ン]|ー)+\z/ }
+    format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :first_name_kana,
-    format: { with: /\A([ァ-ン]|ー)+\z/ }
+    format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birthday
   end
   validates :password,
