@@ -33,6 +33,3 @@ class Item < ApplicationRecord
   validates :description, length: { maximum: 1000, message: "must not exceed 1000 characters"}
   validates_inclusion_of :price, in:300..9999999, message: "should be between 300 and 9999999"
 end
-
-# descriptionが1000文字を超えるとエラーになる場合
-validates :description, length: { maximum: 1000, message: "must not exceed 1000 characters"}
