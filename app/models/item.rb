@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -7,7 +8,6 @@ class Item < ApplicationRecord
   belongs_to :burden
   belongs_to :prefecture
   belongs_to :schedule
-  has_one_attached :image
   
   with_options presence: true do
     validates :image
@@ -28,4 +28,11 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :schedule_id
   end
+
+  validates :item_name, length: { maximum: 40, message: "must not exceed 40 characters"}
+  validates :description, length: { maximum: 1000, message: "must not exceed 1000 characters"}
+  validates_inclusion_of :price, in:300..9999999, message: "should be between 300 and 9999999"
 end
+
+# descriptionが1000文字を超えるとエラーになる場合
+validates :description, length: { maximum: 1000, message: "must not exceed 1000 characters"}
