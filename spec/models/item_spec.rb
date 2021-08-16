@@ -18,7 +18,6 @@ RSpec.describe Item, type: :model do
       
       it 'descriptionが1000文字以内であれば登録できる' do
         @item.description = "あ" * 1000
-        binding.pry
         expect(@item).to be_valid
       end
     end
