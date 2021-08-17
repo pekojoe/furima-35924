@@ -3,7 +3,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.item_name %>
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
@@ -33,7 +33,7 @@
     <% end %>
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @item.description %></span>
     </div>
     <table class="detail-table">
       <tbody>
