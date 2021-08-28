@@ -1,9 +1,6 @@
 FactoryBot.define do
   factory :purchase_delivery do
-    card_number { 4242424242424242 }
-    month { 3 }
-    year { 25 }
-    cvc { 123 }
+    token { 'tok_abcdefghijk00000000000000000' }
     postal_code { '123-4567' }
     prefecture_id { 2 }
     municipality { '札幌市北区' }

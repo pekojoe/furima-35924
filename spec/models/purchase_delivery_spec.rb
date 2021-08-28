@@ -20,28 +20,10 @@ RSpec.describe PurchaseDelivery, type: :model do
     end
 
     context '内容に問題がある場合' do
-      it 'card_numberが空では保存できないこと' do
-        @purchase_delivery.card_number = ''
+      it 'tokenが空では保存できないこと' do
+        @purchase_delivery.token = ''
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Card number can't be blank")
-      end
-
-      it 'monthが空では保存できないこと' do
-        @purchase_delivery.month = ''
-        @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Month can't be blank")
-      end
-
-      it 'yearが空では保存できないこと' do
-        @purchase_delivery.year = ''
-        @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Year can't be blank")
-      end
-
-      it 'cvcが空では保存できないこと' do
-        @purchase_delivery.cvc = ''
-        @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Cvc can't be blank")
+        expect(@purchase_delivery.errors.full_messages).to include("Token can't be blank")
       end
 
       it 'postal_codeが空では保存できないこと' do
