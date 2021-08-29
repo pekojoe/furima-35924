@@ -7,7 +7,7 @@ RSpec.describe PurchaseDelivery, type: :model do
       item = FactoryBot.create(:item)
       @purchase_delivery = FactoryBot.build(:purchase_delivery, user_id: user.id, item_id: item.id)
     end
-  
+
     context '内容に問題ない場合' do
       it '全ての値が正しく入力されていれば保存できること' do
         expect(@purchase_delivery).to be_valid
@@ -35,7 +35,7 @@ RSpec.describe PurchaseDelivery, type: :model do
       it 'postal_codeは「3桁ハイフン4桁」の半角文字列以外では保存できないこと' do
         @purchase_delivery.postal_code = '1234567'
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase_delivery.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefecture_idが未選択では保存できないこと' do
@@ -71,7 +71,7 @@ RSpec.describe PurchaseDelivery, type: :model do
       it 'phone_numberについては10桁以上11桁以内の半角数値以外では保存できないこと' do
         @purchase_delivery.phone_number = '090-1234-5678'
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_delivery.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end
