@@ -1,4 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :move_to_index, only: [:index]
+
   def index #購入ページを表示
     @item = Item.find(params[:item_id]) #購入したいitem_idのレコードを取得
     @purchase_delivery = PurchaseDelivery.new
@@ -30,5 +33,10 @@ class PurchasesController < ApplicationController
       currency: 'jpy'
     )
   end
-  
+
+  def move_to_index 
+    @item = Item.find(params[:item_id]) 
+    redirect_to root_path if (current_user == @item.user) || (@item.purchase.present?)
+  end
+
 end
